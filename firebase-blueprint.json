@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "ledgerEntry": {
+      "title": "Ledger Entry",
+      "description": "Daily sales, expenses, and net profit ledger record for an informal vendor",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the vendor owner"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Trading date in YYYY-MM-DD format"
+        },
+        "totalSales": {
+          "type": "number",
+          "description": "Gross cash/digital income taken in for the day"
+        },
+        "totalExpenses": {
+          "type": "number",
+          "description": "Total operating and inventory expenses incurred"
+        },
+        "netAmount": {
+          "type": "number",
+          "description": "Calculated net profit (totalSales - totalExpenses)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes or item description of goods sold"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the record was saved"
+        }
+      },
+      "required": ["userId", "date", "totalSales", "totalExpenses", "netAmount"]
+    },
+    "userProfile": {
+      "title": "User Profile & Jurisdiction",
+      "description": "Vendor operating jurisdiction, trading duration, and business profile for compliance guidance",
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "Country where the vendor operates (e.g. United States, Mexico, Kenya, India)"
+        },
+        "region": {
+          "type": "string",
+          "description": "State, province, city, or municipality"
+        },
+        "tradingDuration": {
+          "type": "string",
+          "description": "Approximate duration the vendor has been operating"
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "ISO 639-1 language code selected by the vendor"
+        },
+        "languageName": {
+          "type": "string",
+          "description": "Language name with native script"
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "ISO 4217 currency code derived from jurisdiction"
+        },
+        "currencySymbol": {
+          "type": "string",
+          "description": "Currency symbol for financial formatting"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last profile update timestamp"
+        }
+      },
+      "required": ["country", "region", "tradingDuration"]
+    }
+  },
+  "firestore": {
+    "/ledgerEntries/{entryId}": {
+      "schema": {
+        "$ref": "#/entities/ledgerEntry"
+      },
+      "description": "Collection of daily financial logs scoped strictly to the authenticated owner"
+    },
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/userProfile"
+      },
+      "description": "Vendor jurisdiction and operating tenure profile scoped to request.auth.uid == userId"
+    }
+  }
+}

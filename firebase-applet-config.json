@@ -1,0 +1,12 @@
+{
+  "projectId": "vendor-ledger-journal",
+  "appId": "1:1095762456787:web:6b936a05a32acdfa2e2426",
+  "apiKey": "AIzaSyC9o3ZthlyWSQLRsXBszy22_s9UP7i4uu0",
+  "authDomain": "vendor-ledger-journal.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-vendorledgerjour-834b4ab2-6490-4191-adb0-bd1abda12ff6",
+  "storageBucket": "vendor-ledger-journal.firebasestorage.app",
+  "messagingSenderId": "1095762456787",
+  "measurementId": "",
+  "oAuthClientId": "1095762456787-fh7s9casp5ps5fp3i9olb79ro3a5imkt.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+}

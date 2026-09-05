@@ -1,0 +1,10 @@
+{
+  "name": "Vendor Ledger Journal",
+  "description": "Secure, conversational daily bookkeeping and compliance orientation for informal street vendors with Firebase Auth and Firestore.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
